@@ -4,6 +4,7 @@ import { fetchPopularMovies } from '../services/api';
 import MovieCard from '../components/MovieCard';
 import FeaturedMovie from '../components/FeaturedMovie';
 
+
 const breakpointColumnsObj = {
   default: 5,
   1280: 4,
