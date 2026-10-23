@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useUserData } from '../context/UserDataContext';
+import { IMG_BASE_URL } from '../services/api';
 
 const MovieDetail = ({ movie }) => {
   const { userData, setRating, toggleWatched, toggleWatchlist, setNote } = useUserData();
@@ -12,12 +13,8 @@ const MovieDetail = ({ movie }) => {
 
   const [hoverRating, setHoverRating] = useState(0);
 
-  const posterUrl = movie.poster_path
-    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : null;
-  const backdropUrl = movie.backdrop_path
-    ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
-    : null;
+  const posterUrl = movie.poster_path ? `${IMG_BASE_URL}/w500${movie.poster_path}` : null;
+const backdropUrl = movie.backdrop_path ? `${IMG_BASE_URL}/original${movie.backdrop_path}` : null;
 
   const tmdbRating = movie.vote_average?.toFixed(1);
   const genres = movie.genres?.map((g) => g.name).join(', ') || '—';

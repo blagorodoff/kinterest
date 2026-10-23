@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useUserData } from '../context/UserDataContext';
 import { useAuth } from '../context/AuthContext';
-import { fetchMoviesByIds } from '../services/api';
+import { fetchMoviesByIds, IMG_BASE_URL } from '../services/api';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
@@ -80,7 +80,7 @@ const Profile = () => {
             <Link key={id} to={`/movie/${id}`} className="block bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group">
               <div className="aspect-[2/3] bg-gray-200 dark:bg-gray-700 relative">
                 {movie ? (
-                  <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w342${movie.poster_path}` : undefined} alt={movie.title} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={movie.poster_path ? `${IMG_BASE_URL}/w342${movie.poster_path}` : undefined} alt={movie.title} className="w-full h-full object-cover" loading="lazy" />
                 ) : (
                   <div className="flex items-center justify-center h-full text-4xl text-gray-400">🎬</div>
                 )}

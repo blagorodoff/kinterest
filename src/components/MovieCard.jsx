@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
+import { IMG_BASE_URL } from '../services/api';
 
 const MovieCard = ({ movie }) => {
-  const posterUrl = movie.poster_path
-    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : null;
+  const posterUrl = movie.poster_path ? `${IMG_BASE_URL}/w500${movie.poster_path}` : null;
 
   const rating = movie.vote_average?.toFixed(1);
   const year = movie.release_date
